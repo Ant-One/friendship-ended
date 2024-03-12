@@ -9,7 +9,7 @@ app.config.from_pyfile('config.py')
 #UPLOAD_FOLDER = 'uploads'
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg'}
 #app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-app.config['MAX_CONTENT_LENGTH'] = 16 * 1000 * 1000
+app.config['MAX_CONTENT_LENGTH'] = 64 * 1000 * 1000
 
 @app.route("/")
 def hello_world():
