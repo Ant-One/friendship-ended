@@ -50,3 +50,6 @@ def end_friendship(photos, data):
     image_b64 = base64.b64encode(buffered.getvalue())
 
     return render_template("goodbye.html", img_data=image_b64)
+
+if __name__ == "__main__":
+    app.run(host='0.0.0.0')
