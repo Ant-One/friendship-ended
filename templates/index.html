@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Celebrate your new friendship!</title>
+</head>
+<body>
+
+    <h1>Oh no! Your friendship ended with someone?</h1>
+    <h2>Maybe another one started?</h2>
+    <h4><i>One door closes...another one opens?</i></h4>
+
+    <form action="/up" method="post" enctype=multipart/form-data>
+        <div>
+          <label for="old_name">Enter your old friend's name: </label>
+          <input type="text" name="old_name" id="old_name" required />
+        </div>
+        <div>
+          <label for="new_name">Enter the name of your new friend</label>
+          <input type="text" name="new_name" id="new_name" required />
+        </div>
+        <div>
+            <labe for="old_pic1">Some pic of your old friend</label>
+            <input type="file" name="old_pic1" id="old_pic1" required accept="image/*" />
+        </div>
+        <div>
+            <label for="old_pic2">And another one, pls</label>
+            <input type="file" name="old_pic2" id="old_pic2" required accept="image/*" />
+        </div>
+        <div>
+            <label for="new_pic">And finally, one glorious picture of you with your new friend!</label>
+            <input type="file" name="new_pic" id="new_pic" required accept="image/*"/>
+        </div>
+        <div class="form-example">
+          <input type="submit" value="Let's gongue!" />
+        </div>
+      </form>    
+</body>
+</html>
