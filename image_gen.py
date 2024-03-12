@@ -41,7 +41,22 @@ def image_gen(back_path, left_path, right_path, old_friend_name, new_friend_name
 
     draw_top = ImageDraw.Draw(alpha_top)
 
-    draw_top.text((0, 40), TOP_TEXT.format(old_friend_name=old_friend_name), font=font_top, fill='white')
+    x = 0
+    y = 40
+
+    shadowcolor = '#21315b'
+
+    border_image = Image.new("RGBA", (1600, 600))
+    border_draw = ImageDraw.Draw(border_image)
+
+    border_draw.text((x-1, y), TOP_TEXT.format(old_friend_name=old_friend_name), font=font_top, fill=shadowcolor)
+    border_draw.text((x+1, y), TOP_TEXT.format(old_friend_name=old_friend_name), font=font_top, fill=shadowcolor)
+    border_draw.text((x, y-1), TOP_TEXT.format(old_friend_name=old_friend_name), font=font_top, fill=shadowcolor)
+    border_draw.text((x, y+1), TOP_TEXT.format(old_friend_name=old_friend_name), font=font_top, fill=shadowcolor)
+
+    border_image = border_image.resize((round(1600*0.8), round(600*2)))
+
+    draw_top.text((x, y), TOP_TEXT.format(old_friend_name=old_friend_name), font=font_top, fill='white')
 
     grad_top.putalpha(alpha_top)
     #grad_top = grad_top.resize((800, 600))
@@ -60,9 +75,10 @@ def image_gen(back_path, left_path, right_path, old_friend_name, new_friend_name
 
     pseudo_image_other_resized = pseudo_image_other.resize((800, round(600*2)))
 
-    back_resized.paste(pseudo_image_top_resized, (0, -100), pseudo_image_top_resized)
     back_resized.paste(pseudo_image_other_resized, (0, -70), pseudo_image_other_resized)
-
+    back_resized.paste(border_image, (0, -100), border_image)
+    back_resized.paste(pseudo_image_top_resized, (0, -100), pseudo_image_top_resized)
+    
     back.close()
     left.close()
     right.close()
