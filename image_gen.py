@@ -36,16 +36,18 @@ def image_gen(back_path, left_path, right_path, old_friend_name, new_friend_name
 
     font_top = ImageFont.truetype("Arial Bold.ttf", size=50)
 
-    grad_top = Image.open(GRAD1_PATH).resize((800, 600))
-    alpha_top = Image.new("L", (800, 600))
+    grad_top = Image.open(GRAD1_PATH)
+    alpha_top = Image.new("L", (1600, 600))
 
     draw_top = ImageDraw.Draw(alpha_top)
 
     draw_top.text((0, 40), TOP_TEXT.format(old_friend_name=old_friend_name), font=font_top, fill='white')
 
     grad_top.putalpha(alpha_top)
+    #grad_top = grad_top.resize((800, 600))
 
-    pseudo_image_top_resized = grad_top.resize((round(800*0.8), round(600*2)))
+    pseudo_image_top_resized = grad_top.resize((round(1600*0.8), round(600*2)))
+    #pseudo_image_top_resized = grad_top
 
     other_text_layer = ImageDraw.Draw(pseudo_image_other)
 
@@ -58,8 +60,8 @@ def image_gen(back_path, left_path, right_path, old_friend_name, new_friend_name
 
     pseudo_image_other_resized = pseudo_image_other.resize((800, round(600*2)))
 
-    back_resized.paste(pseudo_image_top_resized, (20, -70), pseudo_image_top_resized)
-    back_resized.paste(pseudo_image_other_resized, (0, 0), pseudo_image_other_resized)
+    back_resized.paste(pseudo_image_top_resized, (0, -100), pseudo_image_top_resized)
+    back_resized.paste(pseudo_image_other_resized, (0, -70), pseudo_image_other_resized)
 
     back.close()
     left.close()
