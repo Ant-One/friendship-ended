@@ -17,3 +17,8 @@ This project was made with Python, Pillow and Flask, with Gunicorn and Nginx for
 Feel free to steal it.
 
 Inspired by [this project by lmaucoin](https://github.com/lmaucoin/friendship-ended)
+
+### TO-DO
+- [ ] Some CSS to stop my eyes from bleding
+- [ ] Better gradient
+- [ ] Blue border around all texts
