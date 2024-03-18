@@ -5,7 +5,6 @@ from image_gen import image_gen
 from io import BytesIO
 
 app = Flask(__name__)
-app.config.from_pyfile('config.py')
 #UPLOAD_FOLDER = 'uploads'
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg'}
 #app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
